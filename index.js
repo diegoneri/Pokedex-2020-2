@@ -7,7 +7,7 @@ const atualizaTela = (pokemon) => {
 
 const urlPokemonAleatorio = () => {
     const numeroSorteado = Math.round(Math.random() * 150) +1;
-    const urlPokemon = `https://pokeapi.co/api/v2/pokemon/${numeroSorteado}`;
+    const urlPokemon = `https://pokeapi.co/api/v2/pokemon/${numeroSorteado}`; 
     return urlPokemon;
 }
 
