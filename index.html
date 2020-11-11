@@ -4,28 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokedex - 2020-2</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-flow: column;
-        }
+    <link href='index.css' rel='stylesheet' type='text/css'>
 
-        #foto-pokemon {
-            max-height: 75vh;
-        }
-
-        #nome-pokemon {
-            font-size: 1.5em;
-            font-variant: small-caps;
-        }
-    </style>
 </head>
 <body>
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/250px-International_Pok%C3%A9mon_logo.svg.png" alt="Pokémon">
     <img id="foto-pokemon" src="" alt="Imagem do pokemón">
     <div id="nome-pokemon"></div>
+    <div id="selecao-tema" hidden="true">
+        <form id="frmTema">
+            <label for="tema">Cidade:</label>
+            <select id="tema" name="tema">
+              <option value="" selected>-- selecione --</option>
+              <option value="light-style">Claro</option>
+              <option value="dark-style">Escuro</option>
+            </select>   
+        </form>
+    </div>    
     <script src="index.js"></script>
 </body>
 </html>

@@ -1,0 +1,25 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+}
+
+#foto-pokemon {
+    max-height: 75vh;
+}
+
+#nome-pokemon {
+    font-size: 1.5em;
+    font-variant: small-caps;
+}
+
+.light-style {
+    background-color: whitesmoke;
+    color: blue;
+}
+
+.dark-style {
+    background-color: black;
+    color: whitesmoke;
+}
