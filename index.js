@@ -1,16 +1,8 @@
-const temas = [
-    {id: "light-style", nome: "Claro"}
-   ,{id: "dark-style", nome: "Escuro"}
-]
-
 const atualizaTela = (pokemon) => {
     const imagem = document.getElementById("foto-pokemon");
     const nomePokemon = document.getElementById("nome-pokemon");
-    const selecaoTema = document.getElementById("selecao-tema");
     imagem.src = pokemon.sprites.other["official-artwork"].front_default;
     nomePokemon.innerHTML = pokemon.name;
-
-    selecaoTema.hidden = false;
 }
 
 const urlPokemonAleatorio = () => {
@@ -32,7 +24,8 @@ const iniciar = async () => {
 
 const iniciaSelecaoTemas = () => {
     const selectTema = document.getElementById("tema");
-    temas.forEach(tema => 
+
+    JSON.parse(localStorage.temas).forEach(tema => 
         selectTema.add(new Option(tema.nome, tema.id))
     );
     
@@ -50,15 +43,24 @@ const avaliaTemaSelecionado = (evt) => {
 }
 
 const aplicaTemaSelecionado = () => {
-    temas.forEach(tema => 
+    JSON.parse(localStorage.temas).forEach(tema => 
         document.body.classList.remove(tema.id)
     );
     document.body.classList.add(localStorage.tema);
 }
 
 const validaLocalStorage = () => {
+    if (!localStorage.temas){
+        const temas = [
+            {id: "light-style", nome: "Claro"}
+           ,{id: "dark-style", nome: "Escuro"}
+        ];        
+        
+        localStorage.temas = JSON.stringify(temas);
+    }
     if (!localStorage.tema){
-        localStorage.setItem('tema','light-style');
+        localStorage.setItem('tema'
+                            ,JSON.parse(localStorage.temas)[0].id);
     }
 
     Array.from(document.getElementById("tema").options).forEach(
